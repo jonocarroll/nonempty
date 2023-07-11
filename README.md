@@ -152,7 +152,7 @@ a
 #> [1] "some/other/path"
 ```
 
-but can’t subset or replaced if it becomes empty
+but can’t be subset or replaced if it becomes empty
 
 ``` r
 b[NULL]
@@ -181,7 +181,7 @@ critical_f.default <- function(file, y, ...) {
 }
 
 critical_f.nonempty <- function(file, y = 42) {
-  # it is safe to assume that x is nonempty here
+  # it is safe to assume that `file` is nonempty here
   message("writing y = ", y, " to file: ", file)
   writeLines(as.character(y), con = file)
 }
