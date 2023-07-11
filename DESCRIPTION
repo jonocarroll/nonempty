@@ -11,3 +11,5 @@ License: GPL (>= 3)
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.2.1
+URL: https://github.com/jonocarroll/nonempty
+BugReports: https://github.com/jonocarroll/nonempty/issues
