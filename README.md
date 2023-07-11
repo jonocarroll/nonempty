@@ -139,7 +139,7 @@ nonval <- b + NULL
 
 # can't substr to empty string
 substr(a, 0, 0)
-#> [1] ""
+#> Error in validObject(.Object): invalid class "nonempty" object: data has no characters, needs to have > 0
 ```
 
 The structure can be subset, provided it remains nonempty
@@ -240,6 +240,6 @@ find one and I’ll try to support preventing it.
 *Q: Can’t you just overwrite a variable with an empty string?
 i.e. `x <- ""`*
 
-*A:* Yes
+*A:* Yes.
 
 ![](man/figures/toad.jpg)

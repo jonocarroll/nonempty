@@ -214,7 +214,7 @@ Create a [GitHub Issue][issue] if you find one and I'll try to support preventin
 
 _Q: Can't you just overwrite a variable with an empty string? i.e. `x <- ""`_
 
-_A:_ Yes
+_A:_ Yes.
 
 ![](man/figures/toad.jpg)
 

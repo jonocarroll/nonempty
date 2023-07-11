@@ -50,11 +50,13 @@ nonempty <- function(x) {
 
 #' Print a nonempty object
 #'
+#' @export
 setMethod("show", "nonempty", function(object)
   show(object@.Data))
 
 #' Combine nonempty with nonempty via Ops
 #'
+#' @export
 setMethod("Ops", signature(e1 = "nonempty", e2 = "nonempty"),
           function(e1, e2) {
             e1@.Data = callGeneric(e1@.Data, e2@.Data)
@@ -64,6 +66,7 @@ setMethod("Ops", signature(e1 = "nonempty", e2 = "nonempty"),
 
 #' Combine nonempty with ANY via Ops
 #'
+#' @export
 setMethod("Ops", signature(e1 = "nonempty", e2 = "ANY"),
           function(e1, e2) {
             e1@.Data = callGeneric(e1@.Data, e2)
@@ -73,6 +76,7 @@ setMethod("Ops", signature(e1 = "nonempty", e2 = "ANY"),
 
 #' Combine ANY with nonempty via Ops
 #'
+#' @export
 setMethod("Ops", signature(e1 = "ANY", e2 = "nonempty"),
           function(e1, e2) {
             e2@.Data = callGeneric(e1, e2@.Data)
@@ -82,6 +86,7 @@ setMethod("Ops", signature(e1 = "ANY", e2 = "nonempty"),
 
 #' Extract from nonempty
 #'
+#' @export
 setMethod("[", signature(x = "nonempty", i = "ANY", j = "ANY", drop = "ANY"),
           function(x, i, j, ..., drop = TRUE) {
             if (missing(j)) {
@@ -94,6 +99,7 @@ setMethod("[", signature(x = "nonempty", i = "ANY", j = "ANY", drop = "ANY"),
 
 #' Replace part of non-empty
 #'
+#' @export
 setReplaceMethod("[", signature(x = "nonempty", i = "ANY", j = "ANY", value = "ANY"),
                  function(x, i, j, value) {
                    if (missing(j)) {
@@ -105,6 +111,8 @@ setReplaceMethod("[", signature(x = "nonempty", i = "ANY", j = "ANY", value = "A
                  })
 
 #' Extract substring from nonempty
+#'
+#' @export
 setMethod("substr", signature(x = "nonempty", start = "numeric", stop = "numeric"),
           function(x, start, stop) {
             res <- callGeneric(x@.Data, start, stop)
@@ -112,6 +120,8 @@ setMethod("substr", signature(x = "nonempty", start = "numeric", stop = "numeric
           })
 
 #' Combine nonempty with c()
+#'
+#' @export
 setMethod("c", signature= "nonempty",
           function(x, ..., recursive = FALSE) {
             elements <- list(x, ...)
